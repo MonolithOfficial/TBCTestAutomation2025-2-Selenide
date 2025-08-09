@@ -1,6 +1,7 @@
 package ge.tbc.testautomation.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import ge.tbc.testautomation.data.Constants;
 import ge.tbc.testautomation.steps.DynamicControlsSteps;
@@ -10,7 +11,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static ge.tbc.testautomation.util.CustomCondition.textOfLength;
 
 public class SelenideTests {
     DynamicControlsSteps dynamicControlsSteps;
@@ -38,5 +42,12 @@ public class SelenideTests {
                 .clickDisableButton()
                 .validateAllButtonTexts("Remove")
                 .validateHeader(Constants.HEADER_TEXT);
+    }
+
+    @Test
+    public void testCustomCondition() {
+        open("https://swoop.ge");
+        SelenideElement annualSavings = $(byText("წლიური დანაზოგი")).$x(".//following-sibling::p");
+        annualSavings.scrollTo().shouldHave(textOfLength(10)); // will fail
     }
 }
