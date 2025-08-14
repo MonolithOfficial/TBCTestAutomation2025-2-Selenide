@@ -12,15 +12,13 @@ import java.io.File;
 import static com.codeborne.selenide.Selectors.byTagName;
 import static com.codeborne.selenide.Selenide.*;
 
-public class SelenideTests2 {
+public class SelenideTests2 extends BaseTest{
     FileUploadSteps fileUploadSteps;
     FileDownloadSteps fileDownloadSteps;
 
     @BeforeClass
     public void setUp(){
-        Configuration.browser = "chrome"; // driver = new ChromeDriver();
         Configuration.timeout = 10000;
-        Configuration.holdBrowserOpen = true;
         fileUploadSteps = new FileUploadSteps();
         fileDownloadSteps = new FileDownloadSteps();
     }

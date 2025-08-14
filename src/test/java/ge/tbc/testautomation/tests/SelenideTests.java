@@ -2,12 +2,10 @@ package ge.tbc.testautomation.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
 import ge.tbc.testautomation.data.Constants;
 import ge.tbc.testautomation.steps.DynamicControlsSteps;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import ge.tbc.testautomation.util.RetryAnalyzer;
+import ge.tbc.testautomation.util.RetryCount;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -16,23 +14,18 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.util.CustomCondition.textOfLength;
 
-public class SelenideTests {
+public class SelenideTests extends BaseTest {
     DynamicControlsSteps dynamicControlsSteps;
-    WebDriver driver;
+
     @BeforeClass
     public void setUp(){
-        Configuration.browser = "chrome"; // driver = new ChromeDriver();
         Configuration.timeout = 10000;
-//        Configuration.browserSize = "1920x1080";
         dynamicControlsSteps = new DynamicControlsSteps();
-        ChromeOptions chromeOptions = new ChromeOptions();
-        driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().maximize();
-        WebDriverRunner.setWebDriver(driver);
     }
 
     // this is a demonstation test case for selenide and it is not real in any way
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    @RetryCount(count = 2)
     public void testLocators() {
         open("https://the-internet.herokuapp.com/dynamic_controls");
 
@@ -44,7 +37,8 @@ public class SelenideTests {
                 .validateHeader(Constants.HEADER_TEXT);
     }
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
+    @RetryCount(count = 5)
     public void testCustomCondition() {
         open("https://swoop.ge");
         SelenideElement annualSavings = $(byText("წლიური დანაზოგი")).$x(".//following-sibling::p");

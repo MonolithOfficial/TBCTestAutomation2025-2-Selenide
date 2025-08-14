@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Selenide Test Execution" thread-count="2" parallel="tests">
+    <test name="Selenide 1">
+<!--        <packages>-->
+<!--            <package name="ge.tbc.testautomation.tests"/>-->
+<!--        </packages>-->
+        <classes>
+            <class name="ge.tbc.testautomation.tests.SelenideTests">
+<!--                <methods>-->
+<!--                    <include name="testLocators"/>-->
+<!--                </methods>-->
+            </class>
+        </classes>
+    </test>
+
+<!--    <test name="Selenide 2">-->
+<!--        <classes>-->
+<!--            <class name="ge.tbc.testautomation.tests.SelenideTests2"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>
