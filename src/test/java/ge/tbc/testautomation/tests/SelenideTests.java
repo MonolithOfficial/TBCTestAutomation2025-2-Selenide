@@ -3,7 +3,7 @@ package ge.tbc.testautomation.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import ge.tbc.testautomation.data.Constants;
-import ge.tbc.testautomation.steps.DynamicControlsSteps;
+import ge.tbc.testautomation.steps.theinternet.DynamicControlsSteps;
 import ge.tbc.testautomation.util.RetryAnalyzer;
 import ge.tbc.testautomation.util.RetryCount;
 import org.testng.annotations.BeforeClass;
@@ -14,6 +14,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static ge.tbc.testautomation.util.CustomCondition.textOfLength;
 
+//@Test(groups = {"Selenide 1"})
 public class SelenideTests extends BaseTest {
     DynamicControlsSteps dynamicControlsSteps;
 
@@ -37,7 +38,7 @@ public class SelenideTests extends BaseTest {
                 .validateHeader(Constants.HEADER_TEXT);
     }
 
-    @Test(retryAnalyzer = RetryAnalyzer.class)
+    @Test(retryAnalyzer = RetryAnalyzer.class, groups = {"Selenide 1"})
     @RetryCount(count = 5)
     public void testCustomCondition() {
         open("https://swoop.ge");

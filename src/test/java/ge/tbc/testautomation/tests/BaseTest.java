@@ -2,8 +2,6 @@ package ge.tbc.testautomation.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
-import ge.tbc.testautomation.steps.FileDownloadSteps;
-import ge.tbc.testautomation.steps.FileUploadSteps;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;

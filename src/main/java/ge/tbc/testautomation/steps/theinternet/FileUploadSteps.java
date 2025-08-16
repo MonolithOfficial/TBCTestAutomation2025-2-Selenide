@@ -1,6 +1,6 @@
-package ge.tbc.testautomation.steps;
+package ge.tbc.testautomation.steps.theinternet;
 
-import ge.tbc.testautomation.pages.FileUploadPage;
+import ge.tbc.testautomation.pages.theinternet.FileUploadPage;
 
 import java.io.File;
 

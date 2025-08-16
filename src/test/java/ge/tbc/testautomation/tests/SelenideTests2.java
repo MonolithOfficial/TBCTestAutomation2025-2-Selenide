@@ -1,8 +1,8 @@
 package ge.tbc.testautomation.tests;
 
 import com.codeborne.selenide.*;
-import ge.tbc.testautomation.steps.FileDownloadSteps;
-import ge.tbc.testautomation.steps.FileUploadSteps;
+import ge.tbc.testautomation.steps.theinternet.FileDownloadSteps;
+import ge.tbc.testautomation.steps.theinternet.FileUploadSteps;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -12,6 +12,7 @@ import java.io.File;
 import static com.codeborne.selenide.Selectors.byTagName;
 import static com.codeborne.selenide.Selenide.*;
 
+@Test(groups = {"Selenide 2"})
 public class SelenideTests2 extends BaseTest{
     FileUploadSteps fileUploadSteps;
     FileDownloadSteps fileDownloadSteps;

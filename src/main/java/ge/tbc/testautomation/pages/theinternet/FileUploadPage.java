@@ -1,4 +1,4 @@
-package ge.tbc.testautomation.pages;
+package ge.tbc.testautomation.pages.theinternet;
 
 import com.codeborne.selenide.SelenideElement;
 

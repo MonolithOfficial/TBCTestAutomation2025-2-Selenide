@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Groups Suite">
+    <test name="Groups Test">
+        <groups>
+            <define name="allTests">
+                <include name="Selenide 1"/>
+                <include name="Selenide 2"/>
+            </define>
+            <define name="Selenide 1"/>
+            <define name="Selenide 2"/>
+
+            <run>
+<!--                <include name="Selenide 1"/>-->
+                <include name="allTests"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="ge.tbc.testautomation.tests"></package>
+        </packages>
+    </test>
+</suite>
